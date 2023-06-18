@@ -1,13 +1,13 @@
-exports.getProducts=(req,res)=>{
+const {prodColl} = require('./../config/db_connector');
+exports.getProducts=async(req,res)=>{
 
-    var searchKey=req.query.searchkey;
+    var search=req.query.search;
+    var category=req.query.category;
+    
+    const searchPattern = new RegExp(search, 'i');
+    const categoryPattern = new RegExp(category, 'i')
+        console.log(search +" "+category);
+    
+        res.send({statusCode:200,data:await prodColl.find({productName: { $regex: searchPattern}, category:{ $regex: categoryPattern} }).toArray()});
 
-    console.log(searchKey);
-    if (searchKey=="" || searchKey==null) {
-        res.send({statusCode:200,data:[]})
-       
-    }else {
-        console.log(newList);
-        res.send({statusCode:200,data:[]})
-    }
 }
