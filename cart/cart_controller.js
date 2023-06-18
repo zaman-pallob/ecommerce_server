@@ -2,7 +2,7 @@ const {cartColl,prodDetColl} = require('../config/db_connector');
 
 
 exports.getCartItem=async(req,res)=>{
-    res.send({statusCode:200,count:(await cartColl.find().toArray()).length});
+    res.send({statusCode:200,data:await cartColl.find().toArray()});
 
 }
 
