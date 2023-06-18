@@ -23,7 +23,4 @@ exports.placeOrder=async(req,res)=>{
     } catch (error) {
         res.send({statusCode:422,message:error});
     }
-
-  
-
 }
