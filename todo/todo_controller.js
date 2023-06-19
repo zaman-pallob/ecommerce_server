@@ -33,10 +33,10 @@ exports.updateTodo=async(req,res)=>{
     var id=req.body.id;
     var title=req.body.title;
     var details=req.body.details;
-    var item=await todo.findOne({_id:id});
-    item={_id:id,title:title,details:details};
-    const filter = { _id: id};
-    await todo.findOneAndReplace(filter,item);
+    await todo.findOneAndDelete({_id:id});
+   var item={_id:id,title:title,details:details};
+  
+    await todo.insertOne(item);
 
 
     res.send({statusCode:200,data:await todo.find().toArray()});
