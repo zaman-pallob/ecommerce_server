@@ -30,17 +30,10 @@ exports.updateCart=async(req,res)=>{
             
            console.log(quantity);
            var item={productId:id,productName:name,thumbnail:dp,quantity:quantity};
-            if (cartItem!=null) {
-                const filter = { productId: id};
-                await cartColl.findOneAndReplace(filter,item);
-            }else{
+           
                
-                await cartColl.insertOne(item);
-            }
-
-
-
-
+            await cartColl.insertOne(item);
+        
             res.send({statusCode:200,data:await cartColl.find().toArray(),message:"Added to cart",});
         
         
