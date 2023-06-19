@@ -4,6 +4,7 @@ exports.endpoints={
     products:"/products",
     productDetails:"/productdetails",
     order:"/order",
-    todo:"/todo"
+    todo:"/todo",
+    todoupdate:"/todoupdate"
 
 };

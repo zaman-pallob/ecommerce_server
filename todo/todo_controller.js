@@ -34,7 +34,7 @@ exports.updateTodo=async(req,res)=>{
     var title=req.body.title;
     var details=req.body.details;
     await todo.findOneAndDelete({_id:id});
-   var item={_id:id,title:title,details:details};
+   var item={title:title,details:details};
   
     await todo.insertOne(item);
 
