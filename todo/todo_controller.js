@@ -22,7 +22,7 @@ exports.postTodo=async(req,res)=>{
 
 exports.removeTodo=async(req,res)=>{
 
-    var id=parseInt(req.query.id);
+    var id=req.query.id;
     await todo.findOneAndDelete({_id:id});
     res.send({statusCode:200,data:await todo.find().toArray(),message:"Deleted"});
 
