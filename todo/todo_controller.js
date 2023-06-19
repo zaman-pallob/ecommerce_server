@@ -36,7 +36,7 @@ exports.updateTodo=async(req,res)=>{
     var item=await todo.findOne({_id:id});
     item={_id:id,title:title,details:details};
     const filter = { _id: id};
-    await cartColl.findOneAndReplace(filter,item);
+    await todo.findOneAndReplace(filter,item);
 
 
     res.send({statusCode:200,data:await todo.find().toArray()});
