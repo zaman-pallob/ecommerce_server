@@ -22,7 +22,7 @@ router.post(api.endpoints.cart,updateCart);
 router.get(api.endpoints.todo,getTodo);
 router.delete(api.endpoints.todo,removeTodo);
 router.post(api.endpoints.todo,postTodo);
-router.post(api.endpoints.todo,updateTodo);
+router.put(api.endpoints.todo,updateTodo);
 
 
 
