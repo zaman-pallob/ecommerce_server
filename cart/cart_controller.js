@@ -19,11 +19,9 @@ exports.updateCart=async(req,res)=>{
      var dp=req.body.thumbnail;
      var quantity=parseInt(req.body.quantity);
      var product=await prodDetColl.findOne({productId:id});
-     var cartItem=await cartColl.findOne({productId:id});
+     var cartItem=await cartColl.findOneAndDelete({productId:id});
 
-     if (cartItem!=null) {
-        quantity=quantity+cartItem.quantity;
-    }
+    
     var hasStock=product.stock>quantity;
     console.log(hasStock);
     try {
